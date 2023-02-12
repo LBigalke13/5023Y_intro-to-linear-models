@@ -4,6 +4,8 @@ library(tidyverse)
 library(GGally)
 library(emmeans)
 library(performance)
+library(broom)
+install.packages("broom.helpers")
 
 #__________________----
 
@@ -66,9 +68,9 @@ confint(lsmodel1)
 
 #ANSWERING THE QUESTIONS----
 
-#GGally::ggcoef_model(lsmodel1,
-#                     show_p_values=FALSE, 
-#                     conf.level=0.95)
+GGally::ggcoef_model(lsmodel1,
+                     show_p_values=FALSE, 
+                     conf.level=0.95)
 
 broom::tidy(lsmodel1, conf.int=T, conf.level=0.99)
 
